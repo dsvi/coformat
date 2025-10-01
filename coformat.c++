@@ -7,14 +7,15 @@
 #include <unistd.h>
 #endif
 
-#include "coformat.h"
-
+#include "coformat.h" 
 
 namespace coformat{
 
 static bool runing_on_a_tty(){
 	#ifdef _MSC_VER
-	#pragma warning(suppress : 4996) // MSVC warning
+	#pragma warning(disable: 4996) // MSVC warning
+	#define	STDOUT_FILENO	1	/* Standard output.  */
+	#define	STDERR_FILENO	2	/* Standard error output.  */
 	#endif
 	return isatty(STDOUT_FILENO) and isatty(STDERR_FILENO);
 }
