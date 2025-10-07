@@ -91,4 +91,23 @@ See the `main.c++` for an example of usage
 
 ## Getting it
 
-The library is just 2 files, so just copy the `coformat.h/c++` over to your project. Or use it as CMake dependency. 
+The library is just 2 files, so just copy the `coformat.h/c++` over to your project. 
+
+Or use it as CMake dependency. Add to your `CMakeListis.txt`:
+
+
+```
+FetchContent_Declare(
+    coformat
+    GIT_REPOSITORY https://github.com/dsvi/coformat.git
+    GIT_TAG main
+    EXCLUDE_FROM_ALL
+)
+FetchContent_MakeAvailable(coformat)
+```
+
+Then append to your target's libraries list
+
+```
+target_link_libraries(ma-programm-with-colored-and-styled-CLI PRIVATE coformat)
+```
