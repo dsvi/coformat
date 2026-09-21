@@ -10,5 +10,5 @@ add_library(coformat
     coformat.c++)
 target_include_directories(coformat PUBLIC .)
 
-add_executable(coformat-example main.c++)
+add_executable(coformat-example EXCLUDE_FROM_ALL main.c++)
 target_link_libraries(coformat-example PRIVATE coformat)
